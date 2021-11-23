@@ -89,9 +89,6 @@ var createTaskEl = function (taskDataObj) {
     saveTasks();
 
     taskIdCounter++;
-    console.log(taskDataObj);
-    console.log(taskDataObj.status);
-
 
 };
 
@@ -207,5 +204,29 @@ var saveTasks = function () {
     localStorage.setItem('tasks', JSON.stringify(tasks));
 }
 
+var loadTasks = function () {
+    var tasks = localStorage.getItem('tasks');
+
+    if (!tasks) {
+        return false;
+    }
+
+    tasks = JSON.parse(tasks);
+
+
+
+    for (var i = 0; i < tasks.length; i++) {
+        console.log(tasks[i]);
+
+
+    }
+
+    // convert tasks from string to array
+    // iterate through tasks array and create task element
+};
+
+
 pageContentEl.addEventListener('click', taskButtonHandler);
 pageContentEl.addEventListener('change', taskStatusChangeHandler);
+
+loadTasks();
